@@ -28,8 +28,22 @@ if(lastRecord["Drive"] == "No" or lastRecord["Glasses"] == "Yes"):
 if(lastRecord["Tounge"] == "Yes"):
     moveCountries = True
 
+remeberedFor = ""
 firstInitial = ord(lastRecord["FirstName"])[0].lower() - ord('a') +1
-#if(firstInitial<5):
+if(firstInitial<5):
+    remeberedFor = "winning an award"
+elif(firstInitial<9):
+    remeberedFor = "doing something embarrassing"
+elif(firstInitial<13):
+    remeberedFor = "always being kind"
+elif(firstInitial < 17):
+    remeberedFor = "being the best at your job"
+elif(firstInitial <21):
+    remeberedFor ="being intelligent"
+elif(firstInitial < 25):
+    remeberedFor = "being forgetful"
+else:
+    remeberedFor = "that one thing you did in Vegas"
     
 
 
@@ -40,7 +54,8 @@ def get_results():
         'married': married,
         'career': career,
         'rich': rich,
-        'moveCountries': moveCountries
+        'moveCountries': moveCountries,
+        'remeberedFor': remeberedFor
     }
 )
 
