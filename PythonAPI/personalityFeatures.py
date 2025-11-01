@@ -1,10 +1,18 @@
 from sheets import connect_sheet
 
 sheet =  connect_sheet("My Spreadsheet")   
-records = sheet.get_all_records();
+records = sheet.get_all_records()
 rows = sheet.get_all_values()
+lastRecord = records[-1]
+twins = False
+married = False
 
-if records:
-    last_record = records[-1]
-    print(last_record)
+if(lastRecord["Gender"] == "F" and lastRecord["Height"] > 164):
+    twins = True
+elif(lastRecord["Height"] > 180):
+    married = True
+
+print(lastRecord["BirthMonth"])
+print(married)
+
 
