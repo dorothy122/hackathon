@@ -12,10 +12,12 @@
 
 html {
     font-family: main font;
+    background-color: black;
+    color: whitesmoke;
+    text-align: center;
 }
 
 h1 {
     font-family: title font;
-    font-size: 50px;
-    text-align: center;
+    font-size: 60px;
 }
