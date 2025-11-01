@@ -4,6 +4,16 @@
     src: url(Star\ Vintage.ttf);
 }
 
+@font-face {
+    font-family: main font;
+    src: url(Soft\ Marshmallow.woff);
+}
+
+
+html {
+    font-family: main font;
+}
+
 h1 {
     font-family: title font;
     font-size: 50px;
