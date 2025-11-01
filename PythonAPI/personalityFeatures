@@ -6,8 +6,5 @@ rows = sheet.get_all_values()
 
 if records:
     last_record = records[-1]
-    if("Gender" == "Female"):
-        print("WOMAN")
-    else:
-        print("MAN")
+    print(last_record)
 
