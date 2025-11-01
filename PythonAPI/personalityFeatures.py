@@ -46,18 +46,20 @@ else:
     remeberedFor = "that one thing you did in Vegas"
     
 
-
+@app.route('/get_results')
 def get_results():
-    return jsonify(
-    {
-        'twins': twins,
-        'married': married,
-        'career': career,
-        'rich': rich,
-        'moveCountries': moveCountries,
-        'remeberedFor': remeberedFor
-    }
-)
+    return jsonify({
+        "twins": twins,
+        "married": married,
+        "rich": rich,
+        "moveCountries": moveCountries,
+        "career": career,
+        "rememberedFor": rememberedFor
+    })
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
