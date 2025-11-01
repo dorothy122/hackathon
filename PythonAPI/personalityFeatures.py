@@ -28,6 +28,11 @@ if(lastRecord["Drive"] == "No" or lastRecord["Glasses"] == "Yes"):
 if(lastRecord["Tounge"] == "Yes"):
     moveCountries = True
 
+firstInitial = ord(lastRecord["FirstName"])[0].lower() - ord('a') +1
+#if(firstInitial<5):
+    
+
+
 def get_results():
     return jsonify(
     {
