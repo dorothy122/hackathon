@@ -1,0 +1,11 @@
+
+@font-face {
+    font-family: title font;
+    src: url(Military\ Agent\ TTF\ Personal.ttf);
+}
+
+h1 {
+    font-family: title font;
+    font-size: 50px;
+    text-align: center;
+}
