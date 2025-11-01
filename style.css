@@ -15,6 +15,9 @@ html {
     background-color: black;
     color: whitesmoke;
     text-align: center;
+    background-image: url(curtains\(2\).png);
+    background-position: 50% 35%;
+    padding-top: 100px;
 }
 
 h1 {
