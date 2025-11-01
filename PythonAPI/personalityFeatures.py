@@ -13,7 +13,7 @@ if(lastRecord["Gender"] == "F" and lastRecord["Height"] > 164):
 elif(lastRecord["Height"] > 180):
     married = True
 
-careers = {"january": "Athlete", "febuary":"hello", "march":"bleh", "april":"he", "may":"fed", "june":"fd", "july":"fe","august":"fs", "september":"fd", "october":"fd", "november":"fgeds","december":"fesd"}
+careers = {"january": "Athlete", "febuary":"artist", "march":"pilot", "april":"dictator", "may":"Politian", "june":"CEO", "july":"bricklayer","august":"hairdresser", "september":"academic", "october":"lawyer", "november":"serial killer","december":"dentist"}
 
 career = careers[lastRecord["BirthMonth"].lower()]
 
