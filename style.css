@@ -20,8 +20,11 @@ html {
     background-position: 50% 60%;
     background-repeat: no-repeat;
     background-size: 1500px;
+    background-attachment: fixed;
 
     padding-top: 80px;
+
+
 }
 
 
@@ -50,6 +53,9 @@ a:visited {
     bottom: 24%;
     right: 44.3%;
 }
+
+
+
 
 
 
