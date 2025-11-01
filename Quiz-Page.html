@@ -7,11 +7,23 @@
     <body>
         <h1>Crystal Ball Quiz</h1>
         <h2>Glimpse the Future...</h2>
-        <form>
-            <label for="firstname">First name:</label><br>
-            <input type="text" id="firstname" name="firstname"><br>
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname">
+        <form action="action_page.php" method="POST">
+            <div>
+                <label for="FirstName">First name:</label><br>
+                <input type="text" id="FirstName" name="FirstName" required ><br>
+            </div>
+            <div>
+                <label for="LastName">Last name:</label><br>
+                <input type="text" id="LastName" name="LastName" required><br>
+            </div>
+            <div>
+                <input type = "submit">
+            </div>
+            <label for="Height">Height:</label><br>
+            <input type="text" id="Height" name="Height"><br>
+            <label for="Birth Month">Last name:</label><br>
+            <input type="text" id="Birth Month" name="Birth Month"><br>
+
         </form>
     </body>
 </html>
