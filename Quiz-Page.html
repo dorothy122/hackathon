@@ -7,9 +7,7 @@
     <body>
         <h1>Crystal Ball Quiz</h1>
         <h2>Glimpse the Future...</h2>
-        <form 
-        method = "POST"
-        action="https://script.google.com/macros/s/AKfycby8ggzcjI8S-W8VF9KQBrEneTEApKlBFFOBMUk47lJ158rQcXVAVr2R17Tfxpqt16eN/exec" >
+        <form id = "myForm" >
             <label for="FirstName">First name:</label><br>
             <input type="text" id="FirstName" name="FirstName" required ><br>
             <label for="LastName">Last name:</label><br>
@@ -31,7 +29,37 @@
                 <option value="November">November</option>
                 <option value="December">December</option>
             </select><br>
-            <input type = "submit">
+            <button type = "submit">Submit</button>
         </form>
+        <p id="responseMessage"></p>
+        <script>
+            const form = document.getElementById('myForm');
+            const message = document.getElementById('responseMessage');
+            
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault(); // Prevent form redirect
+            
+                const formData = new FormData(form);
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbwEDyfYWRSfBVQ5Nr3u-tKY3iMR5CSUfYdF0WKGU7uZFGSrr0ziMmSO8e8RcoHY9t76/exec'; // Replace with your deployed Apps Script web app URL
+            
+                try {
+                    const response = await fetch(scriptURL, {
+                        method: 'POST',
+                        body: formData
+                });
+            
+                const result = await response.json();
+                if (result.result === 'success') {
+                    window.location.href = 'SubmissionPage.html';
+                } else {
+                    message.textContent = 'Error: ' + result.message;
+                    message.style.color = 'red';
+                }
+                } catch (error) {
+                    message.textContent = 'Submission failed: ' + error.message;
+                    message.style.color = 'red';
+                }
+            });
+        </script>
     </body>
 </html>
