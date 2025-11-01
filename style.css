@@ -58,9 +58,60 @@ a:link:hover {
     background-color:#A080C6;
 }
 
+input[type=text] {
+    border: 2px solid #A080C6;
+    border-radius: 8px;
+    background-color: whitesmoke;
+    margin: 10px 0;
+}
 
-form {
+input[type=number] {
+    border: 2px solid #A080C6;
+    border-radius: 8px;
+    background-color: whitesmoke;
+    margin: 10px 0;
+}
+select {
+    margin: 10px 0;
+    border: 2px solid #A080C6 ;
+    border-radius: 4px;
+    background-color: whitesmoke;
+}
 
+button[type=button], button[type=submit] {
+    background-color: #BFAAD9;
+    border: 2px solid #A080C6;
+    color: whitesmoke;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #A080C6;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
 }
 
 
