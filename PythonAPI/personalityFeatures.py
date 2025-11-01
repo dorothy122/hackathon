@@ -25,11 +25,11 @@ career = careers[lastRecord["BirthMonth"].lower()]
 if(lastRecord["Drive"] == "No" or lastRecord["Glasses"] == "Yes"):
     rich = True
 
-if(lastRecord["Tounge"] == "Yes"):
+if(lastRecord["Tongue"] == "Yes"):
     moveCountries = True
 
 remeberedFor = ""
-firstInitial = ord(lastRecord["FirstName"])[0].lower() - ord('a') +1
+firstInitial = ord(lastRecord["FirstName"][0].lower()) - ord('a') +1
 if(firstInitial<5):
     remeberedFor = "winning an award"
 elif(firstInitial<9):
@@ -44,18 +44,20 @@ elif(firstInitial < 25):
     remeberedFor = "being forgetful"
 else:
     remeberedFor = "that one thing you did in Vegas"
-    
+
+from google import genai
+
+client = genai.Client(api_key="AIzaSyA_uNBKypl3XyXb3DMVy5G1QgV9WujDDWU")
+
+request = "Create a short paragraph detailing the legacy of a person based on: name: " + lastRecord["FirstName"] + lastRecord["LastName"] + "career" + career +" likely to get married: " + str(married) +" likely to have twins: "+ str(twins) + "likely to be rich" + str(rich) + "being remembred for" + remeberedFor
+message = client.models.generate_content(
+    model="gemini-2.5-flash", contents= request
+)
+print(message)
 
 @app.route('/get_results')
 def get_results():
-    return jsonify({
-        "twins": twins,
-        "married": married,
-        "rich": rich,
-        "moveCountries": moveCountries,
-        "career": career,
-        "rememberedFor": rememberedFor
-    })
+    return message
 
 
 
