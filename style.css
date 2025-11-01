@@ -23,17 +23,15 @@ html {
 h1 {
     font-family: title font;
     font-size: 60px;
-
 }
 
 
 a:link {
     color:whitesmoke;
+    border: 10px solid #fe9804;
     border-radius: 25px;
     background-color: #fe9804;
-    padding: 20px;
-    width: 200px;
-    height: 150px;
+    padding: 15px ;
     text-decoration: none;
 }
 
