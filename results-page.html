@@ -5,7 +5,25 @@
         <title>
             Thanks for your submission
         </title>
+
+        <script>
+            async function loadResults() {
+            try {
+                const response = await fetch('/get_results');
+                const message = await response.text();
+                document.getElementById('results').innerText = message;
+            } catch (error) {
+                console.error('Error fetching results:', error);
+                document.getElementById('results').innerText = 'Error loading results.';
+            }
+            }
+
+            window.onload = loadResults;
+    </script>
     </head>
     <body>
         <h1>RESULTS</h1>
+
+        <p id="results">Loading...</p>
+
     </body>
