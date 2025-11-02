@@ -53,11 +53,12 @@ request = "Create a short paragraph detailing the legacy of a person based on: n
 message = client.models.generate_content(
     model="gemini-2.5-flash", contents= request
 )
-print(message)
 
+paragraph = message.text if hasattr(message, "text") else str(message)
+print(paragraph)
 @app.route('/get_results')
 def get_results():
-    return message
+    return paragraph
 
 
 
