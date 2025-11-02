@@ -123,6 +123,26 @@ select:focus {
     background-color: whitesmoke;
 }
 
+/* Centered, soft orange warning */
+.warning {
+    background-color: #ffe5b4;          /* light orange background */
+    color: #ff7201;                     /* darker orange text */
+    border: 2px solid #ff7201;          /* border in dark orange */
+    border-radius: 10px;                /* rounded edges */
+    padding: 4px 10px;
+    margin-top: 6px;
+    font-size: 0.8em;
+    display: none;                      /* hidden by default */
+    font-weight: 500;
+    width: fit-content;                 /* shrink to text */
+    max-width: 80%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-left: auto;                  /* center horizontally */
+    margin-right: auto;                 /* center horizontally */
+    text-align: center;                 /* center text inside */
+}
+  
+
 
 
 

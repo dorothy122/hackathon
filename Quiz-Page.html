@@ -123,10 +123,59 @@
               div.classList.toggle('active', i === step);
             });
           }
-      
+          // Hide existing warnings in the current step
+          function clearWarnings(step) {
+            const warnings = step.querySelectorAll('.warning');
+            warnings.forEach(w => w.style.display = 'none');
+          }
+
+          // Display a styled warning message below the input
+          function showWarning(input, message) {
+            let warning = input.parentElement.querySelector('.warning');
+            if (!warning) {
+              warning = document.createElement('div');
+              warning.classList.add('warning');
+              input.parentElement.appendChild(warning);
+            }
+            warning.textContent = message;
+            warning.style.display = 'block';
+
+            const clearOnInput = () => {
+                warning.style.display = 'none';
+                input.removeEventListener('input', clearOnInput);
+                input.removeEventListener('change', clearOnInput);
+                };
+            input.addEventListener('input', clearOnInput);
+            input.addEventListener('change', clearOnInput);
+          }
+
+          // Check that all required fields in the current step are filled
+          function validateStep(stepIndex) {
+            const step = formSteps[stepIndex];
+            clearWarnings(step);
+
+            const inputs = step.querySelectorAll('input, select');
+
+            for (let input of inputs) {
+                if (input.type === 'radio') {
+                    // Check radio groups: ensure at least one is checked
+                    const name = input.name;
+                    const groupChecked = step.querySelector(`input[name="${name}"]:checked`);
+                    if (!groupChecked) {
+                        showWarning(group[group.length - 1].parentElement, `Please select an option for "${name}".`);
+                        return false;
+                    }
+                }   else if (input.hasAttribute('required') && !input.value.trim()) {
+                        showWarning(input, `Please fill out the "${input.name}" field.`);
+                        return false;
+                }
+                }
+                return true;
+            }
           document.querySelectorAll('.next-btn').forEach(btn => {
             btn.addEventListener('click', () => {
               if (currentStep < formSteps.length - 1) {
+                if (!validateStep(currentStep)) return; 
                 currentStep++;
                 showStep(currentStep);
               }
@@ -141,6 +190,7 @@
               }
             });
           });
+
       
           // Submit handler
           form.addEventListener('submit', async (e) => {
