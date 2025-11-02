@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 from sheets import connect_sheet
+from google import genai
 
 app = Flask(__name__)
 
@@ -45,7 +46,6 @@ elif(firstInitial < 25):
 else:
     remeberedFor = "that one thing you did in Vegas"
 
-from google import genai
 
 client = genai.Client(api_key="AIzaSyA_uNBKypl3XyXb3DMVy5G1QgV9WujDDWU")
 
