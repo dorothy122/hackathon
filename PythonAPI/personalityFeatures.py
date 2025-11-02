@@ -58,7 +58,7 @@ paragraph = message.text if hasattr(message, "text") else str(message)
 print(paragraph)
 @app.route('/get_results')
 def get_results():
-    return str(paragraph)
+    return jsonify({"result": paragraph})
 
 
 
