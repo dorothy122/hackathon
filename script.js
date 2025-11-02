@@ -71,13 +71,13 @@ function calculate(record) {
 
 
 async function generateParagraph(record, calc) {
-  const prompt = `Create a short paragraph detailing the legacy of a person based on:
+  const prompt = `Create a short paragraph in future tense second person detailing the legacy of a person based on:
   name: ${record.FirstName} ${record.LastName},
   career: ${calc.career},
   likely to get married: ${calc.married},
   likely to have twins: ${calc.twins},
   likely to be rich: ${calc.rich},
-  being remembered for: ${calc.rememberedFor}`;
+  being remembered for: ${calc.rememberedFor}` + "add something unique";
 
     const res = await fetch(
     "https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=" + GEMINI_KEY,
