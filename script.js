@@ -24,8 +24,13 @@ function calculate(record) {
   let married = false;
   let rich = true;
   let moveCountries = false;
+  
+  if(record.Gender === "Female")
+  {
+    Math.random() < 0.8 ? married = true : married = false;
+  }
 
-  if (record.Gender === "F" && Number(record.Height) > 164) {
+  if (record.Gender === "Female" && Number(record.Height) > 164) {
     twins = true;
   } else if (Number(record.Height) > 180) {
     married = true;
