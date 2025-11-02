@@ -9,9 +9,9 @@
         <script>
             async function loadResults() {
             try {
-                const response = await fetch('/get_results');
-                const message = await response.text();
-                document.getElementById('results').innerText = message;
+                const response = await fetch('/get_results'); // fetch from Flask endpoint
+                const data = await response.json();           // parse JSON into 'data'
+                document.getElementById('results').innerText = data.result; // display result
             } catch (error) {
                 console.error('Error fetching results:', error);
                 document.getElementById('results').innerText = 'Error loading results.';

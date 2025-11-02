@@ -1,9 +1,13 @@
 from flask import Flask, jsonify
 from sheets import connect_sheet
 from google import genai
+import json
+from google.genai import types
+import os
 
 app = Flask(__name__)
-
+print("Happy Birthday")
+api_key = os.environ.get('GEMINI_API_KEY')
 sheet =  connect_sheet("My Spreadsheet")   
 records = sheet.get_all_records()
 rows = sheet.get_all_values()
@@ -19,7 +23,7 @@ if(lastRecord["Gender"] == "F" and lastRecord["Height"] > 164):
 elif(lastRecord["Height"] > 180):
     married = True
 
-careers = {"january": "an athlete", "febuary":"an artist", "march":"a pilot", "april":"a dictator", "may":"a politian", "june":"a CEO", "july":"a bricklayer","august":"a hairdresser", "september":"an academic", "october":"a lawyer", "november":"a serial killer","december":"a dentist"}
+careers = {"january": "an athlete", "february":"an artist", "march":"a pilot", "april":"a dictator", "may":"a politian", "june":"a CEO", "july":"a bricklayer","august":"a hairdresser", "september":"an academic", "october":"a lawyer", "november":"a serial killer","december":"a dentist"}
 
 career = careers[lastRecord["BirthMonth"].lower()]
 
@@ -38,14 +42,13 @@ elif(firstInitial<9):
 elif(firstInitial<13):
     remeberedFor = "always being kind"
 elif(firstInitial < 17):
-    remeberedFor = "being the best at your job"
+   remeberedFor = "being the best at your job"
 elif(firstInitial <21):
     remeberedFor ="being intelligent"
 elif(firstInitial < 25):
     remeberedFor = "being forgetful"
 else:
     remeberedFor = "that one thing you did in Vegas"
-
 
 client = genai.Client(api_key="AIzaSyA_uNBKypl3XyXb3DMVy5G1QgV9WujDDWU")
 
@@ -56,13 +59,17 @@ message = client.models.generate_content(
 
 paragraph = message.text if hasattr(message, "text") else str(message)
 print(paragraph)
+
 @app.route('/get_results')
 def get_results():
-    return jsonify({"result": paragraph})
-
-
+        return jsonify({"result": paragraph})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    print("Flash starting")
+    app.run(host = '0.0.0.0', debug=True)
+
+
+
+
 
 
